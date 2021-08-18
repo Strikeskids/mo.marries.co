@@ -23,11 +23,11 @@ body {
 }
 
 .sidebar:nth-child(2n) > img:nth-child(2n), .sidebar:nth-child(2n+1) > img:nth-child(2n+1) {
-  transform: rotate(20deg);
+  transform: rotate(10deg);
 }
 
 .sidebar:nth-child(2n+1) > img:nth-child(2n), .sidebar:nth-child(2n) > img:nth-child(2n+1) {
-  transform: rotate(-20deg);
+  transform: rotate(-10deg);
 }
 
 @media only screen and (max-width: 60em) {
@@ -39,7 +39,18 @@ body {
 .sidebar > img {
   margin: 1em 0;
   width: 80%;
-  max-width: 40em;
+}
+
+.sidebar > img.port {
+  width: 50%;
+  max-width: 15em;
+  padding: 0 15%;
+}
+
+.sidebar > img.land {
+  width: 80%;
+  max-width: 24em;
+  padding: 10% 0;
 }
 
 .title {
