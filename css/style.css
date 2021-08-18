@@ -13,7 +13,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 5em 0;
+  min-width: 15em;
 }
 
 .sidebar {
@@ -28,10 +30,16 @@ body {
   transform: rotate(-20deg);
 }
 
+@media only screen and (max-width: 60em) {
+  .sidebar {
+    display: none;
+  }
+}
 
 .sidebar > img {
   margin: 1em 0;
   width: 80%;
+  max-width: 40em;
 }
 
 .title {
@@ -57,7 +65,7 @@ body {
 main {
   max-width: 40em;
   grid-area: main;
-  padding: 0.95em;
+  padding: 0.95em 0.25em;
   position: relative;
   justify-self: safe start;
 }
@@ -66,14 +74,15 @@ nav {
   margin: 1em 1em;
   display: flex;
   justify-content: space-between;
-
+  flex-wrap: wrap;
 }
 
 nav > a {
   display: block;
   padding: 0.5em;
 
-  min-width: 7em;
+  min-width: 5em;
+  margin: 0.5em 0.25em;
 
   display: block;
   background-color: #35820b;
@@ -83,6 +92,16 @@ nav > a {
   text-align: center;
 }
 
+@media only screen and (max-width: 400px) {
+  nav {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+a {
+  color: inherit;
+}
 
 h1, h2 {
   text-align: center;
@@ -99,6 +118,45 @@ section {
 }
 
 .question {
-  font-weight:bold;
-  white-space: pre-line;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.story-view {
+  display: grid;
+  grid-template-columns: [story] max-content [action] minmax(10em, 2fr);
+  grid-row-gap: 0.5em;
+  grid-column-gap: 1em;
+  position: relative;
+}
+
+.story-view:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(0.25em - 1px);
+  border-left:  solid 3px;
+}
+
+.story-view > .story-point {
+  grid-column: story;
+  text-align: right;
+  position: relative;
+  padding-left: 1em;
+}
+
+.story-view > .action  {
+  grid-column: action;
+  text-align: left;
+}
+
+.story-point:after {
+  content: "●";
+  position: absolute;
+  left: 0em;
+}
+
+#story > h2 {
+  grid-column: 1 / -1;
 }
