@@ -1,6 +1,6 @@
 all: manifest.txt
 
-manifest.txt: index.html $(wildcard css/*.css) $(wildcard images/*.jpg images/*.png)
+manifest.txt: index.html $(wildcard css/*.css) $(wildcard images/*.jpg images/*.png) $(wildcard *.ico *.png *.svg) browserconfig.xml site.webmanifest
 	@echo "echo ... > $@"
 	@echo $^ | tr ' ' '\n' > $@
 
